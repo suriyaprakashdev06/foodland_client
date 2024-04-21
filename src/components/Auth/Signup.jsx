@@ -32,7 +32,7 @@ export default function SignUp() {
   }
   const handleSubmit = (e) => {
     e.preventDefault();
-    fetch("http://localhost:5000/register", {
+    fetch(process.env.REACT_APP_BASEPATH+"/register", {
       method: "POST",
       crossDomain: true,
       headers: {

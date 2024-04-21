@@ -33,7 +33,7 @@ export default function Login() {
 
   function handleSubmit(e) {
     e.preventDefault();
-    fetch("http://localhost:5000/login-user", {
+    fetch(`${process.env.REACT_APP_BASEPATH}/login-user`, {
       method: "POST",
       crossDomain: true,
       headers: {
@@ -42,31 +42,36 @@ export default function Login() {
         "Access-Control-Allow-Origin": "*",
       },
       body: JSON.stringify({
-        email : email.toLowerCase(),
+        email: email.toLowerCase(),
         password,
       }),
     })
       .then((res) => res.json())
       .then((data) => {
-        if (data.status == "ok") {
-          setOpen(true)
-          setAlertTimer(setSuccess)
-          setAlertMsg("login successful");
-          console.log(data.data);
+        if (data.status === "ok") {
+          setOpen(true);
+          setAlertTimer(setSuccess);
+          setAlertMsg("Login successful");
           localStorage.setItem("email", data.data.email);
           localStorage.setItem("userName", `${data.data.name}`);
           localStorage.setItem("loggedIn", true);
           setTimeout(() => {
-            navigate("/home")
+            navigate("/home");
           }, 500);
-          
-        }else{
-          setOpen(true)
-          setAlertTimer(setError)
-          setAlertMsg(data.msg)
+        } else {
+          setOpen(true);
+          setAlertTimer(setError);
+          setAlertMsg(data.msg);
         }
+      })
+      .catch((error) => {
+        console.error("Error:", error);
+        setOpen(true);
+        setAlertTimer(setError);
+        setAlertMsg("An error occurred while logging in.");
       });
   }
+  
   useEffect(()=>{
     setErrMsg("")
   },[email,password])

@@ -39,7 +39,7 @@ export default function ForgetPassword() {
     function handleSubmit(e) {
         e.preventDefault();
         setOtpExpiry(true)
-        fetch("http://localhost:5000/forgot-password", {
+        fetch(process.env.REACT_APP_BASEPATH+"/forgot-password", {
             method: "POST",
             crossDomain: true,
             headers: {
@@ -105,7 +105,7 @@ export default function ForgetPassword() {
     const changePassword = (e) => {
         e.preventDefault();
         if (newPass == confirmPass) {
-            fetch("http://localhost:5000/update-password", {
+            fetch(process.env.REACT_APP_BASEPATH+"/update-password", {
                 method: "POST",
                 crossDomain: true,
                 headers: {
