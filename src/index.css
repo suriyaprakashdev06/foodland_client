@@ -1,0 +1,65 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+.box{
+    padding: 20px;
+    border:  2px solid;
+    width: 150px;
+    height: auto;
+}
+.boxMain{
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+}
+body{
+    font-family:Poppins;
+}
+.leftRoundOrange{
+    background-image: url(../src/assets/images/leftRoundOrange.png);
+    width: 42%;
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: bottom -10px right -20px;    
+    border-radius: 20px;
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex-end;
+    position: relative;
+}
+
+.scrollBar{
+
+}
+
+
+.scrollBar::-webkit-scrollbar {
+    height: 12px;
+  }
+  
+  .scrollBar::-webkit-scrollbar-thumb,
+  .scrollBar::-webkit-scrollbar-track {
+    border-radius: 92px;
+  }
+  
+  .scrollBar::-webkit-scrollbar-thumb {
+    background: var(--darkred);
+  }
+  
+  .scrollBar::-webkit-scrollbar-track {
+    background: var(--thumb);
+  }
+  .loginContainer{
+    background-image: url(../public/images/biriyani.jpg);
+    background-size: cover;
+    background-repeat: no-repeat;
+
+  }
+  .p-carousel-next,.p-carousel-prev{
+    height: 40px;
+    width: 40px;
+    border-radius: 50%;
+  }
+.p-carousel-next:hover,.p-carousel-prev:hover{
+    border: 1px solid;
+  }
